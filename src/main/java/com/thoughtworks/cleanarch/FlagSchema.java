@@ -16,4 +16,5 @@ public class FlagSchema {
     public boolean equalsWith(String flag){
         return flag.equals(this.flag);
     }
+
 }

@@ -3,29 +3,27 @@ package com.thoughtworks.cleanarch;
 public class Arg {
     private String flag;
     private String value;
-    private String type;
 
-    public String getFlag() {
-        return flag;
-    }
-
-    public void setFlag(String flag) {
+    public Arg(String flag, String value) {
         this.flag = flag;
+        this.value = value;
     }
 
     public String getValue() {
         return value;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public Object switchValue() {
+        switch (flag) {
+            case "l":
+                return Boolean.parseBoolean(value);
+            case "p":
+                return Integer.parseInt(value);
+            case "d":
+                return String.valueOf(value);
+            default:
+                return null;
+        }
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
 }
